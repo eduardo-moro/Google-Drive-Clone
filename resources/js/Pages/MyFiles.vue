@@ -1,7 +1,8 @@
 <template>
-    <Head title="Dashboard"> </Head>
+    <Head title="My Files"> </Head>
 
     <AuthenticatedLayout>
+        {{ $page.url }}
     </AuthenticatedLayout>
 </template>
 
