@@ -11,4 +11,20 @@ class FileController extends Controller
     {
         return Inertia::render('MyFiles');
     }
+
+    public function sharedByMe()
+    {
+        return Inertia::render('SharedByMe');
+    }
+
+    public function sharedWithMe()
+    {
+        return Inertia::render('SharedWithMe');
+    }
+
+    public function trash()
+    {
+        return Inertia::render('Trash');
+    }
+
 }

@@ -18,6 +18,9 @@ Route::controller(\App\Http\Controllers\FileController::class)
     ->middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/my-files', 'myFiles')->name('myFiles');
+        Route::get('/shared/by-me', 'sharedByMe')->name('sharedByMe');
+        Route::get('/shared/with-me', 'sharedWithMe')->name('sharedWithMe');
+        Route::get('/trash', 'trash')->name('trash');
 
         Route::get('/dashboard', function () {
             return Inertia::render('Dashboard');
