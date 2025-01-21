@@ -21,6 +21,7 @@ Route::controller(\App\Http\Controllers\FileController::class)
         Route::get('/shared/by-me', 'sharedByMe')->name('sharedByMe');
         Route::get('/shared/with-me', 'sharedWithMe')->name('sharedWithMe');
         Route::get('/trash', 'trash')->name('trash');
+        Route::get('/folder/create', 'createFolder')->name('folder.create');
 
         Route::get('/dashboard', function () {
             return Inertia::render('Dashboard');

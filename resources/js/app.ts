@@ -18,7 +18,7 @@ function applyTheme(theme: string) {
 }
 
 function initializeTheme() {
-    const savedTheme = "localStorage.getItem('theme')";
+    const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         applyTheme(savedTheme);
     } else {

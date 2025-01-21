@@ -2,7 +2,7 @@
     <div class="">
       <Menu as="div" class="relative block">
         <MenuButton
-            class="flex justify-between w-full rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+            class="flex justify-between w-full rounded-md bg-black px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
           >
             Create New
             <PlusIcon class="h-5 w-5" />
@@ -19,18 +19,24 @@
           <MenuItems
             class="absolute left-0 mt-2 w-[176px] origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
           >
-            <div class="px-2 py-2">
+            <div>
+              <div class="hover:bg-gray-200 px-2 py-2">
                 <MenuItem v-slot="{ active }">
-                    <a href="">New Folder</a>
+                  <a href="">New Folder</a>
                 </MenuItem>
+              </div>
             </div>
-            <div class="px-2 py-2 gap-2 flex flex-col">
-                <MenuItem v-slot="{ active }">
+            <div class="flex flex-col">
+                <div class="hover:bg-gray-200 px-2 py-2">
+                  <MenuItem v-slot="{ active }">
                     <a href="">Upload Folder</a>
-                </MenuItem>
-                <MenuItem v-slot="{ active }">
+                  </MenuItem>
+                </div>
+                <div class="hover:bg-gray-200 px-2 py-2">
+                  <MenuItem v-slot="{ active }">
                     <a href="">Upload File</a>
-                </MenuItem>
+                  </MenuItem>
+                </div>
             </div>
           </MenuItems>
         </transition>
