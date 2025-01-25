@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 
-.comfortaa-unique {
-    font-family: "Comfortaa", serif;
+.fredoka-unique {
+    font-family: "Fredoka", monospace, serif;
     font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
+    font-weight: 400;
 }
+  

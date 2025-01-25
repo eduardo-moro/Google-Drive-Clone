@@ -20,33 +20,43 @@
             class="absolute left-0 mt-2 w-[176px] origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
           >
             <div>
-              <div class="hover:bg-gray-200 px-2 py-2">
-                <MenuItem v-slot="{ active }">
-                  <a href="">New Folder</a>
+              <div @click="showCreateFolderModal" class="hover:bg-gray-200 px-2 py-2 w-full cursor-pointer">
+                <MenuItem  v-slot="{ active }">
+                  <p>New Folder</p>
                 </MenuItem>
               </div>
             </div>
             <div class="flex flex-col">
-                <div class="hover:bg-gray-200 px-2 py-2">
+                <div @click="" class="hover:bg-gray-200 px-2 py-2 w-full cursor-pointer">
                   <MenuItem v-slot="{ active }">
-                    <a href="">Upload Folder</a>
+                    <p>Upload Folder</p>
                   </MenuItem>
                 </div>
-                <div class="hover:bg-gray-200 px-2 py-2">
+                <div @click="" class="hover:bg-gray-200 px-2 py-2 w-full cursor-pointer">
                   <MenuItem v-slot="{ active }">
-                    <a href="">Upload File</a>
+                    <p>Upload File</p>
                   </MenuItem>
                 </div>
             </div>
           </MenuItems>
         </transition>
       </Menu>
+
+      <CreateFolderModal v-model="createFolderModal"/>
     </div>
   </template>
 
 <script setup>
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import { PlusIcon } from '@heroicons/vue/24/solid'
+import { ref } from 'vue';
+import CreateFolderModal from './CreateFolderModal.vue';
+
+const createFolderModal = ref(false);
+
+function showCreateFolderModal(){
+  createFolderModal.value = true;
+}
 </script>
 
 <style lang="">
