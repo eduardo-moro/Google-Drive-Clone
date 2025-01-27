@@ -14,9 +14,18 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::controller(\App\Http\Controllers\FileController::class)
+    ->middleware(['auth', 'verified'])
+    ->group(function () {
+        Route::get('/dashboard/{folder?}', 'dashboard')
+            ->where('folder', '(.*)')
+            ->name('dashboard');
+        Route::get('/shared/by-me', 'sharedByMe')->name('sharedByMe');
+        Route::get('/shared/with-me', 'sharedWithMe')->name('sharedWithMe');
+        Route::get('/trash', 'trash')->name('trash');
+
+        Route::post('/folder/create', 'createFolder')->name('folder.create');
+    });
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
