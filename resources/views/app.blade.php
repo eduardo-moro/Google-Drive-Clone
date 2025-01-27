@@ -16,7 +16,7 @@
         @vite(['resources/js/app.ts', "resources/js/Pages/{$page['component']}.vue"])
         @inertiaHead
     </head>
-    <body class="fredoka-unique antialiased light">
+    <body class="fredoka-unique antialiased select-none">
         @inertia
     </body>
 </html>

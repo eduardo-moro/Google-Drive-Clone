@@ -49,6 +49,7 @@ class RegisteredUserController extends Controller
 
         $file = new File();
         $file->name = $user->email;
+        $file->path = "/";
         $file->is_folder = 1;
         $file->makeRoot()->save();
 

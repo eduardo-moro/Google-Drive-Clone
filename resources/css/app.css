@@ -2,10 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
 
 .fredoka-unique {
     font-family: "Fredoka", monospace, serif;
     font-optical-sizing: auto;
     font-weight: 400;
 }
-  

@@ -3,15 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreFolderRequest;
+use App\Http\Resources\FileResource;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use App\Models\File;
 
 class FileController extends Controller
 {
-    public function myFiles()
+    public function dashboard(string $folder = null)
     {
-        return Inertia::render('MyFiles');
+        if( $folder)
+        {
+            $folder = File::query()
+                ->where('created_by', Auth::id())
+                ->where('path', $folder)
+                ->firstOrFail();
+        } else {
+            $folder = File::getRoot();
+        }
+
+        $files = File::query()->where('parent_id', $folder->id)
+                     ->where('created_by', Auth::id())
+                     ->orderBy('is_folder', 'desc')
+                     ->orderBy('created_at', 'desc')
+                     ->paginate(20);
+
+        $files = FileResource::collection($files);
+
+        $ancestors = FileResource::collection([...$folder->ancestors, $folder]);
+
+        $folder = new FileResource($folder);
+
+        return Inertia::render('dashboard', compact('files', 'folder', 'ancestors'));
     }
 
     public function sharedByMe()

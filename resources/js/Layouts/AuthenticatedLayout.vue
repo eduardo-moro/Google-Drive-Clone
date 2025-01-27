@@ -2,16 +2,16 @@
     <div class="h-screen flex w-full gap-4 dark:bg-gray-800">
         <Navigation />
 
-        <main class="flex flex-col flex-1 px-4 overflow-hidden">
+        <main class="flex flex-col flex-1 px-4 overflow-hidden overflow-y-auto no-scrollbar">
             <div class="flex items-center justify-between w-full">
                 <SearchForm />
                 <div class="flex">
                     <button
                         @click="handleThemeToggle"
-                        class="p-2 text-black no-bg dark:text-white"
+                        class="no-bg p-2 text-black dark:text-white"
                         aria-label="Toggle theme"
-                        >
-                            <component
+                    >
+                        <component
                             :is="isDarkMode ? SunIcon : MoonIcon"
                             class="w-6 h-6"
                         />
